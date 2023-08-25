@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
+from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,10 +20,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-c-6j#g12+se@vyd$5=j6abp!$#1ow-9p$6nx0=t(u7+%ay%h6n"
+SECRET_KEY = config("SECRET_KEY") ##"django-insecure-c-6j#g12+se@vyd$5=j6abp!$#1ow-9p$6nx0=t(u7+%ay%h6n"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config("DEBUG",cast=bool)  #True
 
 ALLOWED_HOSTS = []
 
@@ -126,5 +126,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 ############Celery Integration ################
-CELERY_BROKER_URL = "redis://localhost:6379"
-CELERY_RESULT_BACKEND = "redis://localhost:6379"
+CELERY_BROKER_URL = config("CELERY_BROKER_URL")           ##"redis://localhost:6379"
+CELERY_RESULT_BACKEND = config("CELERY_RESULT_BACKEND")   ##"redis://localhost:6379"

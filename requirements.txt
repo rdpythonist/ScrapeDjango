@@ -13,6 +13,7 @@ click-didyoumean==0.3.0
 click-plugins==1.1.1
 click-repl==0.3.0
 Django==3.2.7
+python_decouple==3.8
 django-appconf==1.0.5
 django-celery-email==3.0.0
 django-environ==0.7.0
